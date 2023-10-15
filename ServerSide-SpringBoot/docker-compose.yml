@@ -1,0 +1,40 @@
+version: "3.9"
+
+services:
+
+  mysql:
+    image: mysql:latest
+    restart: unless-stopped
+    networks:
+      - internal
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./local_data_save:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ImmobiTec
+    deploy:
+      resources:
+        limits:
+          memory: 1024M
+    command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
+
+  api:
+    build:
+      context: .
+      dockerfile: ./dockerfile
+    networks:
+      - internal
+      - external
+    ports:
+      - "9000:9000"
+    depends_on:
+      - "mysql"
+    restart: unless-stopped
+
+networks:
+  external:
+    driver: bridge
+  internal:
+    driver: bridge

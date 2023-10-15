@@ -1,0 +1,55 @@
+<form [formGroup]="auctionForm">
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea formControlName="description" id="description" class="form-control" rows="4" maxlength="220" oninput="updateCharCount()" placeholder="Enter a brief description of your auction"></textarea>
+    <small class="form-text text-muted float-right" [ngClass]="{'text-danger': auctionForm.controls['description'].value?.length > 220}" >
+      <span id="charCount" style="color: red;">
+        {{ auctionForm.controls['description'].value ? 220 - auctionForm.controls['description'].value.length : 220 }}Characters remaining
+      </span>
+    </small>
+  </div>
+  <script>
+    function updateCharCount() {
+      var textArea = document.getElementById("exampleFormControlTextarea1");
+      var charCount = document.getElementById("charCount");
+      var maxLength = textArea.maxLength;
+      var currentLength = textArea.value.length;
+      var remaining = maxLength - currentLength;
+      charCount.innerText = remaining;
+    }
+    </script>
+  <div class="form-group">
+    <label for="startingBid">Starting Bid</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Dt</span>
+      </div>
+      <input type="number" formControlName="entryFee" id="entryFee" class="form-control"   placeholder="Enter a starting bid">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col">
+      <label for="startDate">Start Date</label>
+      <input type="date" formControlName="startDate" id="startDate" class="form-control" placeholder="Select a start date">
+      <div *ngIf="auctionForm.controls['startDate'].errors?.['pastDate'] && (auctionForm.controls['startDate'].dirty || auctionForm.controls['startDate'].touched)">
+        <small class="text-danger" *ngIf="auctionForm.controls['startDate'].errors?.['pastDate']">
+          Start Date can't be in the past
+        </small>
+      </div>
+    </div>
+    <div class="col">
+      <label for="endDate">End Date</label>
+      <input type="date" formControlName="endDate" id="endDate" class="form-control" placeholder="Select an end date">
+      <div *ngIf="auctionForm.controls['endDate'].errors?.['minEndDate'] && (auctionForm.controls['endDate'].dirty || auctionForm.controls['endDate'].touched)">
+        <small class="text-danger" *ngIf="auctionForm.controls['endDate'].errors?.['minEndDate']">
+          End Date must be greater than Start Date
+        </small>
+      </div>
+    </div>
+  </div>
+
+
+
+  <button routerLink="/Auctions" (click)="AddAuction()" class="btn btn-primary" type="submit" [disabled]="!auctionForm.valid">Add Auction</button>
+</form>

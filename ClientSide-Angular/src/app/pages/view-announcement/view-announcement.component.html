@@ -1,0 +1,17 @@
+
+
+<div class="form-style-8">
+  <h2>View  Announcement</h2>
+  <form (ngSubmit)="updateAnnouncement()">
+    <input type="number" name="field1"  [(ngModel)]="announcement.price" placeholder="Enter Your Price" />
+    <select [(ngModel)]="announcement.type"  data-trigger="" name="choices-single-defaul" style="width: 400px;margin-bottom: 10px;">
+      <option placeholder="" value=""></option>
+              <option>Sale</option>
+              <option>Rent</option>
+    </select>
+    <input type="submit" style="margin-right: 40px;" value="Update Announcement" />
+    <button class="btn btn-danger" type="reset" >Reset </button>
+  </form>
+  <button *ngIf="announcement.boosted==false" class="btn btn-success" style="margin-bottom: 40px;" (click)="makePayment(20)">Boost this Announcement</button>
+<h4 *ngIf="announcement.boosted==true" >this Announcement is Boosted </h4>
+</div>

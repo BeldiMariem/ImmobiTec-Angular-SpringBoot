@@ -1,0 +1,48 @@
+
+<div class="container" style="margin-left: 35%;margin-right: 35%;">
+  <h1 >Product Order </h1>
+  <br>
+  <br>
+  <div class="row">
+      <div class="col-sm-6 col-md-6 col-lg-4">
+          <div class="food-card">
+              <div class="food-card_img">
+                  <img src="https://media.istockphoto.com/id/941410386/photo/distribution-warehouse-logistics-packaged-parcels-ready-for-shipment-and-delivery.jpg?s=612x612&w=0&k=20&c=exsJ4oMqm5iQnTTnf02lQ7qS943k3RxIPpNk_Q-85r0=" alt="">
+                  <a href="#!"><i class="far fa-heart"></i></a>
+              </div>
+              <div class="food-card_content">
+                  <div class="food-card_title-section">
+                      <a href="#!" class="food-card_title">{{ product.name }}</a>
+                      <a href="#!" class="food-card_author">{{ product.name }}</a>
+                  </div>
+                  <div class="food-card_bottom-section">
+                      <div class="space-between">
+                          <div>
+                              <span class="fa fa-fire"></span> {{ product.description }}
+                          </div>
+                          <div class="pull-right">
+                              <span class="badge badge-success">Product</span>
+                          </div>
+                      </div>
+                      <hr>
+                      <div class="space-between">
+                          <div class="food-card_price">
+                              <span>{{ product.price }} DT</span>
+                          </div>
+                          <div class="food-card_order-count">
+                              <div class="input-group mb-3">
+
+                                      <button style=" color:white" class="btn btn-outline-secondary btn-success minus-btn" type="button" (click)="confirm()" ><i class="fa fa-check"></i> Confirm</button>
+
+
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+  </div>
+</div>
+

@@ -1,0 +1,34 @@
+<h3>Create a Service</h3>
+<form (ngSubmit)="saveService()">
+
+ 
+
+  <div class="form-group">
+    <label>Title</label>
+    <input type="text" class ="form-control" id="title"
+           [(ngModel)]="service.title" name="title">
+  </div>
+
+  <div class="form-group">
+    <label>Description</label>
+    <input type="text" class ="form-control" id="description"
+           [(ngModel)]="service.description" name="description">
+  </div>
+
+  <div class="form-group">
+    <label>Price</label>
+    <input type="number" class ="form-control" id="price"
+           [(ngModel)]="service.price" name="price">
+  </div>
+
+  <div class="form-group">
+    <label>Picture</label>
+    <input type="text" class ="form-control" id="picture"
+           [(ngModel)]="service.picture" name="picture">
+  </div>
+
+  
+  <button class="btn btn-success" type="submit" style="margin-right: 40px;">Submit</button>
+  <button class="btn btn-danger" type="reset" >Reset </button>
+
+</form>

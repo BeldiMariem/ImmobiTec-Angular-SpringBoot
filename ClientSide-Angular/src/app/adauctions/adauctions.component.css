@@ -1,0 +1,93 @@
+table {
+  width: 100%;
+  font-size: 14px;
+  text-align: center;
+}
+
+th,
+td {
+  padding: 12px 15px;
+}
+
+th {
+  background-color: #F5F5F5;
+  color: #000;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+td {
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) td {
+  background-color: #F9F9F9;
+}
+
+button.btn {
+  color: #fff;
+}
+
+button.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+button.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+button.btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+.pagination-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination > .page-item > .page-link {
+  border-radius: 30px;
+  margin: 0 5px;
+}
+
+.pagination > .page-item.active > a,
+.pagination > .page-item.active > span {
+background-color: #0e415e;
+border-color: #0e415e;
+}
+
+.pagination > .page-item > a,
+.pagination > .page-item > span {
+color: #0e415e;
+border: 1px solid #0e415e;
+}
+
+.pagination > .page-item:hover > a,
+.pagination > .page-item:hover > span {
+background-color: #0e415e;
+border-color: #0e415e;
+color: #fff;
+}
+
+.pagination > .page-item.disabled > a,
+.pagination > .page-item.disabled > a:focus,
+.pagination > .page-item.disabled > a:hover,
+.pagination > .page-item.disabled > span {
+color: #ccc;
+background-color: #fff;
+border-color: #ccc;
+cursor: not-allowed;
+}
+
+.custom-alert {
+  background-color: #F8D7DA;
+  color: #721C24;
+  padding: 10px;
+  border: 1px solid #F5C6CB;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}

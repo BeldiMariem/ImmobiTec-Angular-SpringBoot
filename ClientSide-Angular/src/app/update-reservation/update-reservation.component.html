@@ -1,0 +1,48 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header" style="background: linear-gradient(15deg,  #a6a9df,  #2c3e50);">
+            <h4 class="card-title">Update Reservation</h4>
+            <p class="card-category">Update an existing Reservation</p>
+          </div>
+          <div class="card-body">
+            <form (ngSubmit)="updateReservation()">
+
+
+              <div class="form-group">
+                <label>Number of nights</label>
+                <input type="number" class ="form-control" id="street_name"  [(ngModel)]="reservation.number_nights" name="street_name">
+              </div>
+
+
+              <div class="form-group">
+                <label>Reservation Date</label>
+                <input type="date" class="form-control" [value]="formatDate(reservation.date_reservation)" name="reservationdate">
+              </div>
+              
+              <div class="form-group">
+                <label>Check in </label>
+                <input type="date" class="form-control" [value]="formatDate(reservation.checkindate)" name="checkindate">
+              </div>
+              
+              <div class="form-group">
+                <label>Check out</label>
+                <input type="date" class="form-control" [value]="formatDate(reservation.checkoutdate)" name="checkoutdate">
+              </div>
+              
+
+
+
+
+
+              <button class="btn btn-success" type="submit" style="margin-right: 40px;">Update</button>
+              <button class="btn btn-danger" type="reset">Reset</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

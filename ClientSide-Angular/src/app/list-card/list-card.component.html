@@ -1,0 +1,13 @@
+<div  *ngFor="let car of cards ">
+    <span>{{car.quantity_ordered}}</span>
+    <button class="btn btn-danger" (click)="deleteCards(car.id_card)">delete</button>
+    <button class="btn btn-danger" routerLink="/UpdateCards/{{car.id_card}}">Update</button>
+   
+
+
+   
+    
+    </div>
+    <button class="btn btn-primary" routerLink="/AddCards">AddCards</button>
+
+  

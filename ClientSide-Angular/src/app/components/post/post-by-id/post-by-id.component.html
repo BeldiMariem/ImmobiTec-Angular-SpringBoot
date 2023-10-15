@@ -1,0 +1,146 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+<div class="container">
+<div class="main-body p-0">
+    <div class="inner-wrapper">
+        <!-- Inner sidebar -->
+        <div class="inner-sidebar">
+            <!-- Inner sidebar header -->
+            <div class="inner-sidebar-header justify-content-center">
+                <button class="btn btn-primary has-icon btn-block" type="button" data-toggle="modal" data-target="#threadModal">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus mr-2">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    NEW POST
+                </button>
+            </div>
+            <!-- /Inner sidebar header -->
+
+            <!-- Inner sidebar body -->
+            <div class="inner-sidebar-body p-0">
+                <div class="p-3 h-100" data-simplebar="init">
+                    <div class="simplebar-wrapper" style="margin: -16px;">
+                        <div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div>
+                        <div class="simplebar-mask">
+                            <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
+                                <div class="simplebar-content-wrapper" style="height: 100%; overflow: hidden scroll;">
+                                    <div class="simplebar-content" style="padding: 16px;">
+                                        <nav class="nav nav-pills nav-gap-y-1 flex-column">
+                                            <a id="allposts" class="nav-link nav-link-faded has-icon active">All Posts</a>
+                                            <a id="mostliked" class="nav-link nav-link-faded has-icon">Most Liked</a>
+                                            <a href="#" class="nav-link nav-link-faded has-icon">Popular Today</a>
+                                            <a href="#" class="nav-link nav-link-faded has-icon">No replies yet</a>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="simplebar-placeholder" style="width: 234px; height: 292px;"></div>
+                    </div>
+                    <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="width: 0px; display: none;"></div></div>
+                    <div class="simplebar-track simplebar-vertical" style="visibility: visible;"><div class="simplebar-scrollbar" style="height: 151px; display: block; transform: translate3d(0px, 0px, 0px);"></div></div>
+                </div>
+            </div>
+            <!-- /Inner sidebar body -->
+        </div>
+        <!-- /Inner sidebar -->
+
+        <!-- Inner main -->
+        <div class="inner-main">
+            <!-- Inner main header -->
+            <div class="inner-main-header">
+                <span class="input-icon input-icon-sm ml-auto w-auto">
+                    <input type="text" class="form-control form-control-sm bg-gray-200 border-gray-200 shadow-none mb-4 mt-4" placeholder="Search forum" />
+                </span>
+            </div>
+            <!-- /Inner main header -->
+
+            <!-- Inner main body -->
+
+           
+
+            <!-- Forum Detail -->
+            <div class="inner-main-body p-2 p-sm-3 show forum-content " id="essentialcard">
+                <a routerLink="/forumById/{{idForum}}" class="btn btn-light btn-sm mb-3 has-icon" data-target=".forum-content"><i class="fa fa-arrow-left mr-2"></i>Back</a>
+                <div class="card mb-2">
+                    <div class="card-body">
+                        <div class="media forum-item">
+                            <a href="javascript:void(0)" class="card-link">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle" width="50" alt="User" />
+                                <small class="d-block text-center text-muted">Newbie</small>
+                            </a>
+                            <div class="media-body ml-3">
+                                <a href="javascript:void(0)" class="text-secondary">Mokrani</a>
+                                <!--small class="text-muted ml-2">1 hour ago</small-->
+                                <h5 class="mt-1">{{post.description}}</h5>
+                                <div class="mt-3 font-size-sm">
+                                    <p>
+                                        {{post.description}}
+                                    </p>
+                                </div>
+                                <a href="javascript:void(0)" class="text-secondary">Comments :</a>
+                            </div>
+                            <div class="text-muted small text-center">
+                                <span class="d-none d-sm-inline-block"><i class="bi bi-hand-thumbs-up"></i>Likes: {{post.likes}}</span>
+                                <span><i class="bi bi-hand-thumbs-down"></i> || Dislikes: {{post.dislikes}}</span>
+                            </div>
+                        </div>
+                        <!--PARTIE COMMENTS-->
+                        
+                    </div>
+                </div>
+                <div *ngFor="let c of comment">
+                    <div class="media forum-item">
+                        <a href="javascript:void(0)" class="card-link">
+                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle" width="50" alt="User" />
+                            <small class="d-block text-center text-muted">Newbie</small>
+                        </a>
+                        <div class="media-body ml-3">
+                            <!--a href="javascript:void(0)" class="text-secondary">Mokrani</a-->
+                            <!--small class="text-muted ml-2">1 hour ago</small-->
+                            <!--h5 class="mt-1">{{c.}}</h5-->
+                            <div class="mt-3 font-size-sm">
+                                <p>
+                                    {{c.message}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="text-muted small text-center">
+                            <span class="d-none d-sm-inline-block"><i class="bi bi-hand-thumbs-up"></i>
+                                <button (click)="updateComment(c.id_comment)" class="btn badge-info">Update |</button></span>
+                            <span><i class="bi bi-hand-thumbs-down"></i>
+                                <button (click)="deleteComment(c.id_comment)" class="btn badge-info">| Delete</button></span>
+                        </div>
+                    </div>
+                </div>
+                <div >
+                    <div class="media forum-item">
+                        <div class="media-body ml-3">
+                            <!--a href="javascript:void(0)" class="text-secondary">Mokrani</a-->
+                            <!--small class="text-muted ml-2">1 hour ago</small-->
+                            <!--h5 class="mt-1">{{c.}}</h5-->
+                            <div class="mt-3 font-size-sm">
+                                
+                             <form (ngSubmit)="onSubmit()">
+                                <div class="form-group">
+                                    <input type="text" placeholder="Comment" class ="form-control" id="message"
+                                        [(ngModel)]="newcomment.message" name="message">
+                                </div>
+                                <button class="btn btn-success" type="submit">submit</button>
+                            </form>
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Forum Detail -->
+
+            <!-- /Inner main body -->
+        </div>
+        <!-- /Inner main -->
+    </div>
+
+</div>
+</div>

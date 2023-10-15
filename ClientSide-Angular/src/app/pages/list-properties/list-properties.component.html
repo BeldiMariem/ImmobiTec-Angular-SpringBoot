@@ -1,0 +1,49 @@
+
+<div class="mat-elevation-z8" *ngIf="dataSource">
+    <table mat-table [dataSource]="dataSource">
+  
+      <!-- Medication Column -->
+      <ng-container matColumnDef="Adresse">
+        <th mat-header-cell *matHeaderCellDef> Adresse </th>
+        <td mat-cell *matCellDef="let element"> {{element.adresse.city}}, {{element.adresse.street_name}} </td>
+      </ng-container>
+  
+      <!-- Action Column -->
+      <ng-container matColumnDef="Description">
+        <th mat-header-cell *matHeaderCellDef> Description </th>
+        <td mat-cell *matCellDef="let element">{{element.description | slice:0:20}}...</td>
+      </ng-container>
+  
+      <!-- Add to bundle Column -->
+      <ng-container matColumnDef="Type">
+        <th mat-header-cell *matHeaderCellDef>Type </th>
+        <td mat-cell *matCellDef="let element">{{element.type}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="Close">
+        <th mat-header-cell *matHeaderCellDef>Close</th>
+        <td mat-cell *matCellDef="let element"><button *ngIf="element.closed == false" class="btn btn-warning"  (click)="closeProperty(element.id_property)">close</button>
+            <button class="btn btn-info" *ngIf="element.closed == true" (click)="closeProperty(element.id_property)">open</button></td>
+      </ng-container>
+  
+      <ng-container matColumnDef="Action">
+        <th mat-header-cell *matHeaderCellDef>Action</th>
+        <td mat-cell *matCellDef="let element"><button class="btn btn-danger" (click)="deleteProperty(element.id_property)">Delete</button>
+            <button class="btn btn-success" style="margin-left: 10px;" routerLink="/UpdateProperty/{{element.id_property}}">Update</button>
+            <a style="margin-left: 10px;" routerLink="/ListImages/{{element.id_property}}">Images</a>
+            <a *ngIf="!verifProperty(element.id_property)" style="margin-left: 10px;" routerLink="/AddAnnouncement/{{element.id_property}}">Create Announcement</a>
+            <a *ngIf="verifProperty(element.id_property)" style="margin-left: 10px;" routerLink="/ViewAnnouncement/{{element.id_property}}">View Announcement</a>
+            <a  style="margin-left: 10px;" routerLink="/GetAppointment/{{element.id_property}}">View Appointments</a>
+            <a  style="margin-left: 10px;"  routerLink="/AddAuction/{{element.id_property}}">ADD Auction</a>
+          </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 15, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+
+  <div class="text-center" style="margin-top: 10px; margin-bottom: 15px;" >
+		<button class="btn btn-primary" routerLink="/AddProperty">Add a Property</button>
+</div>

@@ -1,0 +1,56 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-plain">
+          <div class="card-header" style="background: linear-gradient(15deg,  #a6a9df,  #2c3e50);">
+            <div class="row">
+              <div class="col-md-6">
+                <h4 class="card-title mt-0">Your Reservations List</h4>
+              </div>
+              <div class="col-md-6 text-right">
+                
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th style="text-align: right;">Number of reservation</th>
+                    <th style="text-align: right;">Number of nights</th>
+                    <th style="text-align: right;">Date of reservation</th>
+                    <th style="text-align: right;">Check in date</th>
+                    <th style="text-align: right;">Check out date</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let r of reservation">
+                  <tr>
+                    <td class="text-right">{{r.id_reservation}}</td>
+                    <td class="text-right">{{r.number_nights}}</td>
+                    <td class="text-right">{{r.date_reservation| date: 'dd/MM/yyyy'}}</td>
+                    <td class="text-right">{{r.checkindate| date: 'dd/MM/yyyy'}}</td>
+                    <td class="text-right">{{r.checkoutdate| date: 'dd/MM/yyyy'}}</td>
+                    <td class="text-right">
+                      <button class="btn btn-delete" style="margin-right: 10px; margin-top: 10px;" (click)="deleteReservation(r.id_reservation)">Delete</button>
+                      <button class="btn btn-update" style="margin-right: 10px; margin-top: 10px;" routerLink="/UpdateReservation/{{r.id_reservation}}">Update</button>
+                    </td>
+                  </tr>
+                </tbody>
+                <tr>
+                  <td colspan="5" class="text-end fw-bold">Total Revenue:</td>
+                  <td class="text-end">{{ totalRevenue | currency:'USD':true }}</td>
+                </tr>
+              </table>
+              <button class="btn btn-primary" (click)="pdf()" download="Reservations.pdf">PDF</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

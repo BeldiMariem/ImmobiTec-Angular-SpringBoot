@@ -1,0 +1,30 @@
+<div class="auction-container">
+  <div class="image-container">
+    <img src="data:image/jpeg;base64,{{auction.property?.images[0]?.url}}" alt="{{auction.description}}">
+  </div>
+  <div class="auction-details">
+    <div class="auction-info">
+      <h2>{{auction.description}}</h2>
+      <ng-container >
+        <p class="current-winner">
+          <span style="font-weight: bold;">Current winner:</span>
+          {{auction.winner}}, already paid: {{max}}
+        </p>
+      </ng-container>
+      <ng-container *ngIf="!auction.mises">
+        <p class="current-winner">No bids yet</p>
+      </ng-container>
+      <p class="dates">
+        <span style="font-weight: bold;">Start date:</span>
+        {{auction.startDate | date:'mediumDate'}}
+      </p>
+      <p class="dates">
+        <span style="font-weight: bold;">End date:</span>
+        {{auction.endDate | date:'mediumDate'}}
+      </p>
+      <label for="nom" style="font-weight: bold;">Bid amount</label>
+      <input formControlName="Mise" [(ngModel)]="mise" type="number" id="nom" name="nom">
+      <button (click)="AddMise(auction.id_auction)" routerLink="/Auctions" class="btn btn-primary">Add Your Mise</button>
+    </div>
+  </div>
+</div>

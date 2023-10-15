@@ -1,0 +1,60 @@
+.circle-container {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    margin: 0 auto;
+  }
+  
+  .circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #ddd;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  
+  .inner-circle {
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .inner-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .circle::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 10px solid #3498db;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    transform: rotate(0deg);
+    animation: spin 1s ease-in-out forwards;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(calc(360deg * ({{occupancyRate}} / 100)));
+    }
+  }
+  

@@ -1,0 +1,45 @@
+<section class="about_section layout_padding" style="margin-bottom: 10px">
+  <div class="container">
+
+
+    <span style="font-size: 35px;">Products</span>
+  <br>
+
+    <br>
+
+
+    <br>
+    <div class="row">
+      <div class="col-sm-3" *ngFor="let prod of products">
+        <div>
+
+          <div class="card">
+            <div class="img">
+              <img
+                class="img"
+                src="https://www.coveris.com/assets/images/templates/performance-icons/enhanced-freshness.png"
+              /><img />
+
+            </div>
+
+            <span>{{ prod.name}} </span>
+            <p class="info"> <b>Description :</b> {{ prod.description}}</p>
+            <p class="info"> <b>Price :</b> {{ prod.price}}</p>
+
+
+            <br>
+            <div>
+              <button style="background-color: #f0d43a; "  routerLink="/discount/{{prod.id_product}}"><i class="fa fa-settings" ></i> Discount</button>
+              <button style="background-color: #f0d43a; margin-left: 2; "  routerLink="/AddOrders/{{prod.id_product}}"><i class="fa fa-settings" ></i> Order</button>
+            </div>
+            <br>
+
+          </div>
+        </div>
+        <br>
+      </div>
+
+    </div>
+
+  </div>
+</section>

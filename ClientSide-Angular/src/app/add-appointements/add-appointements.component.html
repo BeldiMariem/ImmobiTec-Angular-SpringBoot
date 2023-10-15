@@ -1,0 +1,15 @@
+<h3>Create a Appointements</h3>
+<form (ngSubmit)="saveAppointements()">
+
+ 
+
+  <div class="form-group">
+    <label>Date</label>
+    <input type="date" class ="form-control" id="date"
+           [(ngModel)]="appointements.date_appointement" name="date">
+  </div>
+  
+  <button class="btn btn-success" type="submit" style="margin-right: 40px;">Submit</button>
+  <button class="btn btn-danger" type="reset" >Reset </button>
+
+</form>

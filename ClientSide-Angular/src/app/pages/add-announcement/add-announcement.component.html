@@ -1,0 +1,17 @@
+
+
+
+<div class="form-style-8">
+  <h2>Create a Announcement</h2>
+  <form (ngSubmit)="saveAnnouncement()">
+    <input type="number" name="field1"  [(ngModel)]="announcement.price" placeholder="Enter Your Price" />
+    <select [(ngModel)]="announcement.type"  data-trigger="" name="choices-single-defaul" style="width: 400px;margin-bottom: 10px;">
+      <option placeholder="" value=""></option>
+              <option>Sale</option>
+              <option>Rent</option>
+    </select>
+    <input type="submit" style="margin-right: 40px;" value="Add Announcement" />
+    <button class="btn btn-danger" type="reset" >Reset </button>
+  </form>
+</div>
+

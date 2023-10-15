@@ -1,0 +1,95 @@
+
+
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-plain">
+                    <div class="card-header" style="background: linear-gradient(15deg,  #a6a9df,  #2c3e50);">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4 class="card-title mt-0">Your Dorm Rooms List</h4>
+                            </div>
+                            <div class="col-md-6 text-right">
+                                <button mat-raised-button class="btn btn-default" routerLink="/AddDormRoom"><span class="material-icons">
+                                    add
+                                    </span> dorm room</button>
+                                </div>   
+                        </div>
+                        <app-occupancy-rate></app-occupancy-rate>
+                    </div>
+
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="">
+                                    <th style="text-align: right;">
+                                        Room
+                                    </th>
+                                    <th style="text-align: right;">
+                                        Number of places
+                                    </th>
+                                    <th style="text-align: right;">
+                                        Availability
+                                    </th>
+                                    <th style="text-align: right;">
+                                       Number of likes
+                                    </th>
+                                    <th style="text-align: right;">
+                                        Number of dislikes
+                                     </th>
+                                     <th style="text-align: right;">
+                                        Type of the room
+                                     </th>
+                                    <th style="text-align: right;">Price</th>
+                                </thead>
+                                <tbody *ngFor="let dorm of DormRooms">
+                                    <tr>
+                                    
+                                        <td class="text-right">{{dorm.name}}</td>
+                                        <td class="text-right">{{dorm.nbPlace}}</td>
+                                        <td class="text-right">{{dorm.status}}</td>
+                                        <td class="text-right">{{dorm.isLiked}}</td>
+                                        <td class="text-right">{{dorm.isDisliked}}</td>
+                                        <td class="text-right">{{dorm.dormRoomType}}</td>
+                                        <td class="text-right">{{dorm.price}}</td>
+                                        <td class="text-right">
+
+                                            <button class="btn btn-delete" style="margin-right: 10px; margin-top: 10px;" (click)="deleteDormRoom(dorm.id_Room)">Delete</button>
+
+                                            <button class="btn btn-update" style="margin-right: 10px; margin-top: 10px;" routerLink="/UpdateDormRoom/{{ dorm.id_Room }}">Update</button>
+                                            
+                                            <button *ngIf="dorm.Picture == null" class="btn btn-image" style="margin-right: 10px; margin-top: 10px;" routerLink="/AddImage/{{ dorm.id_Room }}">Image</button>
+                                            
+                              
+                                            </td>
+ 
+                                             
+                                           
+                                          
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  

@@ -1,0 +1,28 @@
+table {
+    width: 100%;
+  }
+  .mat-elevation-z8
+  {
+    width:83%;
+    margin-top: 30px;
+    margin-left: 170px;
+    display: inline-block;
+    margin-bottom: 30px;
+    border:2px solid rgba(0, 0, 255, .2);
+  }
+  th{
+    font-weight: bold;
+    font-size: 15px;
+  }
+  @media screen and (max-width : 568px)
+  {
+    .mat-elevation-z8{
+      width: auto;
+      margin-top: 70px;
+      margin-left: 20px;
+      margin-right: 10px;
+      display: inline-block;
+      margin-bottom: 30px;
+      border:2px solid rgba(0, 0, 255, .2);
+    }
+  }

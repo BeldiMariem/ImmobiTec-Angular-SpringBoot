@@ -1,0 +1,67 @@
+<div id="header">
+  <h1>More room details</h1>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card" style="margin-right: 30px;">
+        <div class="card-image">
+          <img src="data:image/jpeg;base64,{{ dorm.picture }}" class="card-img" alt="...">
+        </div>
+
+        <div class="card-text">
+          <div *ngIf="dorm.status !== 'notavailable'">
+            <div class="card-body">
+              <div [ngClass]="{'status-container': true, 'status-available': dorm.status === 'Available', 'status-notavailable': dorm.status === 'notavailable'}">
+                <p class="card-meal-type">{{ dorm.status }}</p>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="dorm.status === 'notavailable'">
+            <div class="card-body">
+              <div class="status-container status-notavailable">
+                <p class="card-meal-type">{{ dorm.status }}</p>
+              </div>
+            </div>
+          </div>
+
+          <h2 class="card-title">{{ dorm.name }}</h2>
+          <p class="card-meal-type">{{ dorm.dormRoomType}} Room</p>
+          <p class="card-body">Description:{{dorm.description}}</p>
+          <p class="card-body">Number of places:{{dorm.nbPlace}}</p>
+
+          <div *ngIf="dorm.status !== 'notavailable'">
+            <div class="card-body">
+              <div class="reserve-container">
+                <a class="buy" routerLink="/AddReservation/{{ dorm.id_Room }}">Reserve now</a>
+              </div>
+            </div>
+          </div>
+          <div class="card-price">{{dorm.price}}DT</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" style="margin-top: 27px;">
+      <div class="card mt-4">
+        <div class="card-body">
+          <h4 class="card-title">Add your feedback here</h4>
+          <form (ngSubmit)="AddFeedback()">
+            <div class="form-group">
+              <label for="feedback-title">Title</label>
+              <input type="text" class="form-control" id="feedback-title" [(ngModel)]="feedback.title" name="feedback-title">
+            </div>
+            <div class="form-group">
+              <label for="feedback-content">Content</label>
+              <textarea class="form-control" id="feedback-content" [(ngModel)]="feedback.feedback_message" name="feedback-content"></textarea>
+            </div>
+            <button class="btn btn-success" type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+      <app-feedback></app-feedback>
+    </div>
+
+  </div>
+</div>

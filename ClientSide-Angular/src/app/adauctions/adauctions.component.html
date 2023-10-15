@@ -1,0 +1,53 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Rechercher des enchères" [(ngModel)]="searchString" (input)="filterAuctions(searchString)">
+      </div>
+      <div class="table-responsive">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Description</th>
+              <th>Entry Fee</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let auction of auctions | paginate: { itemsPerPage: pageSize, currentPage: currentPage }; let i = index">
+            <tr>
+              <td>{{ auction.id }}</td>
+              <td>{{ auction.description }}</td>
+              <td>{{ auction.entryFee }}</td>
+              <td>{{ auction.startDate | date:'mediumDate' }}</td>
+              <td>{{ auction.endDate | date:'mediumDate' }}</td>
+              <td>
+                <button class="btn btn-danger" (click)="deleteAuction(auction.id_auction)">Delete</button>
+              </td>
+             
+            </tr>
+            <tr>
+              <td colspan="6">{{ (currentPage - 1) * pageSize + i + 1 }}</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+      <div class="row justify-content-between align-items-center mt-4">
+        
+        <div class="col-md-4">
+          <div class="d-flex justify-content-end">
+            <button class="btn btn-secondary mr-2" (click)="pdf()" download="auctions.pdf">Export PDF</button>
+            <button class="btn btn-secondary" (click)="excel()">Export Excel</button>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center mt-4">
+        <div class="col-md-6">
+          <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

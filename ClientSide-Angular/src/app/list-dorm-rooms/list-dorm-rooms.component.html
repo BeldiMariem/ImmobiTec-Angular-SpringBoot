@@ -1,0 +1,249 @@
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Album example · Bootstrap v5.0</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+  </head>
+
+
+
+  <input type="text" name="c" [(ngModel)]="searchtext" class="form-control bg-gradient-light px-4" placeholder="Search">
+
+  <div id="header">
+    <h1>Our Dorm Rooms</h1>
+    <p>With the best prices that you can find</p>
+  </div>
+  <div class="container">
+    <div *ngFor="let dorm of DormRooms | filter:searchtext "  class="col-md-4">
+    <div class="card" style="margin-left: 70px;">
+      <div class="card-image">
+        <img src="data:image/jpeg;base64,{{ dorm.picture }}" class="card-img" alt="...">
+      </div>
+
+      <div class="card-text">
+        <div *ngIf="dorm.status !== 'notavailable'">
+          <div class="card-body">
+            <div [ngClass]="{'status-container': true, 'status-available': dorm.status === 'Available', 'status-notavailable': dorm.status === 'notavailable'}">
+              <p class="card-meal-type">{{ dorm.status }}</p>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="dorm.status === 'notavailable'">
+          <div class="card-body">
+            <div class="status-container status-notavailable">
+              <p class="card-meal-type">{{ dorm.status }}</p>
+            </div>
+          </div>
+  
+        
+        
+          
+          
+        </div>
+        <h2 class="card-title">{{ dorm.name }}</h2>
+        <p class="card-meal-type">{{ dorm.dormRoomType}} Room</p>
+        <p class="card-body">Description:{{dorm.description}}</p>
+        <p class="card-body">Number of places:{{dorm.nbPlace}}</p>
+        <div class="card-body">
+          <p class="likes">{{dorm.isLiked}}</p>
+          <p class="dislikes">{{dorm.isDisliked}}</p>
+        </div>
+
+
+        <div *ngIf="dorm.status !== 'notavailable'">
+          <div class="card-body">
+            <div class="reserve-container">
+              <a class="buy" routerLink="/AddReservation/{{ dorm.id_Room }}">Reserve now</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="like-dislike-buttons">
+          <button class="like-button" (click)="likeDorm(dorm.id_Room)"><i class="fas fa-thumbs-up"></i> Like</button>
+          <button class="dislike-button" (click)="DislikeDorm(dorm.id_Room)"><i class="fas fa-thumbs-down"></i> Dislike</button>
+        </div>
+
+    
+
+
+
+
+
+
+
+
+        <a href="/dorms/{{ dorm.id_Room }}" class="btn "><span class="material-icons">view</span></a>
+
+
+      </div>
+      
+        
+
+
+      </div>
+      <div class="card-price">{{dorm.price}}DT</div>
+      
+    </div>
+
+    
+  </div>
+
+  
+
+
+  <div class="container-fluid" style="margin-bottom: 30px;">
+    <div class="row">
+      <div class="col-md-2">
+        <!-- Your main content here -->
+      </div>
+      <div class="col-md-8">
+        <div class="best-rooms-container">
+          <h3>Best Rooms</h3>
+          <div class="best-rooms-list">
+            <div class="best-room" style="display: inline-block;margin-right: 150px;margin-left: 20px;" *ngFor="let room of bestRooms">
+              <div class="circle-img-wrapper">
+                <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
+                  <title>Placeholder</title>
+                  <rect width="100%" height="100%" fill="#777"/>
+                  <text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
+                </svg>
+                <img src="data:image/jpeg;base64,{{ room.picture }}" class="card-img" alt="..." style="max-width: 100%; max-height: 100%; object-fit: cover; object-position: center;">
+              </div>
+              <div class="best-room-info">
+                <h4 style="font-family: cursive;">{{ room.name }}</h4>
+                <div class="card-body">
+                  <p class="likes">{{room.isLiked}}</p>
+                  <p class="dislikes">{{room.isDisliked}}</p>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar bg-success" role="progressbar" [style.width.%]="((room.isLiked - room.isDisliked) / (room.isLiked + room.isDisliked)) * 100" [attr.aria-valuenow]="(room.isLiked - room.isDisliked) / (room.isLiked + room.isDisliked) * 100" aria-valuemin="0" aria-valuemax="100">
+                    {{ ((room.isLiked - room.isDisliked) / (room.isLiked + room.isDisliked)) * 100 }}%
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <style>
+    .best-rooms-container {
+      border: 1px solid #ccc;
+      padding: 20px;
+      margin-left: 20px;
+    }
+    
+    .best-rooms-list {
+      margin-top: 20px;
+    }
+    
+    .best-room {
+      display: flex;
+      margin-bottom: 20px;
+    }
+    
+    .best-room-info {
+      margin-left: 20px;
+    }
+    
+    .best-room-info h4 {
+      font-size: 1rem;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    
+    .best-room-info p {
+      font-size: 0.8rem;
+      margin-bottom: 5px;
+    }
+    
+    .progress {
+      height: 10px;
+      margin-bottom: 10px;
+    }
+
+    </style>
+
+
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+

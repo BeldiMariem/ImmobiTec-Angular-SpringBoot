@@ -1,0 +1,61 @@
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+crossorigin=""/>
+
+
+
+
+
+<form class="form-style-9" (ngSubmit)="saveProperty()">
+  <ul>
+  <li>
+    <select class="field-style field-full align-none" [(ngModel)]="property.type"  data-trigger="" name="choices-single-defaul" style="width: 400px;margin-bottom: 10px;">
+      <option placeholder="" value=""></option>
+      <option>House</option>
+      <option>Appartement</option>
+      <option>Land</option>
+    </select>
+    <input placeholder="Description" class="field-style field-full align-none" type="text"  id="description"
+    [(ngModel)]="property.description" name="description">
+  
+  </li>
+  <li>
+    <select class="field-style field-full align-none" [(ngModel)]="closed"  data-trigger="" name="choices-single-defaul" style="width: 400px;margin-bottom: 10px;">
+      <option placeholder="" value=""></option>
+              <option>closed</option>
+              <option>opened</option>
+    </select>
+    <input class="field-style field-full align-none" type="text"  id="city"
+    [(ngModel)]="adress.city" name="city" placeholder="City">
+  </li>
+  <li>
+    <input class="field-style field-full align-none" type="text" placeholder="Street Name" id="street_name"
+    [(ngModel)]="adress.street_name" name="street_name">  </li>
+  <li>
+    <input placeholder="state" type="text" class="field-style field-full align-none" id="state"
+    [(ngModel)]="adress.state" name="state">
+  </li>
+
+  <li>
+    <input placeholder="indication" type="text" class="field-style field-full align-none" id="indication"
+           [(ngModel)]="adress.indication" name="indication">
+  </li>
+
+  <li>
+    <input type="number" placeholder="Code Postal" class="field-style field-full align-none" id="postal_code"
+    [(ngModel)]="adress.postal_code" name="postal_code">
+  </li>
+  <h4 >Please Pick Your Property Location :</h4>
+  <div id="SecondCarte"></div>
+  <Label for="lat" style="margin-top: 40px; margin-left: 110px">Latitude :  </Label>
+  <input class="field-style field-full align-none"  style="width: 150px;"  type="number" step="any"  id="lat1" name="lat1" readonly />
+  
+  <Label for="lat" style="margin-left: 50px">Longitude :  </Label>
+  <input class="field-style field-full align-none"   style="width: 150px;"  type="number"  step="any" id="lon1" name="lon1" readonly />
+
+<br />
+  <li>
+  <input type="submit" value="Add Property" />
+  </li>
+  </ul>
+  </form>

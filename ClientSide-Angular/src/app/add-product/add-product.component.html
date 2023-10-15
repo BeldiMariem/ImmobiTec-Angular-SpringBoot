@@ -1,0 +1,61 @@
+<h3>Create a Service</h3>
+<form (ngSubmit)="saveProduct()">
+  <div class="form-group">
+    <label>Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="title"
+      [(ngModel)]="product.name"
+      name="name"
+    />
+  </div>
+
+  <div class="form-group">
+    <label>Description</label>
+    <input
+      type="text"
+      class="form-control"
+      id="description"
+      [(ngModel)]="product.description"
+      name="description"
+    />
+  </div>
+
+  <div class="form-group">
+    <label>Price</label>
+    <input
+      type="number"
+      class="form-control"
+      id="price"
+      [(ngModel)]="product.price"
+      name="price"
+    />
+  </div>
+  <div class="form-group">
+    <label>Quantity</label>
+    <input
+      type="number"
+      class="form-control"
+      id="price"
+      [(ngModel)]="product.quantity"
+      name="quantity"
+    />
+  </div>
+
+  <div class="form-group">
+    <label>Colors</label>
+    <input
+      type="text"
+      class="form-control"
+      id="picture"
+      [(ngModel)]="product.colors"
+      name="colors"
+    />
+  </div>
+
+  <button class="btn btn-success" type="submit" style="margin-right: 40px">
+    Submit
+  </button>
+  <button class="btn btn-danger" type="reset">Reset</button>
+</form>

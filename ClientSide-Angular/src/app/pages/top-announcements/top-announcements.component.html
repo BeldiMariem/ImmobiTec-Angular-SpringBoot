@@ -1,0 +1,106 @@
+
+<section class="shop_section layout_padding">
+  <div class="main">
+    <ul class="cards">
+      <li class="cards_item">
+        <div class="card">
+          <div class="card_image">
+            <span class="note">#1</span>
+            <img src="data:image/jpeg;base64,{{topannouncements[0].property?.images[0]?.url}}" alt="IMG" />
+            <span class="card_price"><span>DT</span>{{topannouncements[0].price}}</span>
+          </div>
+          <div class="card_content">
+            <h2 class="card_title">Type : {{topannouncements[0].type}}</h2>
+            <div class="card_text">
+              <p><strong>Address  :</strong> {{topannouncements[0].property.adresse.city}},  {{topannouncements[0].property.adresse.street_name}}
+              </p>
+            
+              <p>
+                <strong>Description  :</strong> {{topannouncements[0].property.description}} 
+              </p>
+              <p> <strong>Avg Rate :</strong> {{topannouncements[0].ratmoyenne}} <i class="fa fa-star" style="color: rgb(199, 199, 45);"></i>
+              <hr />
+              <button routerLink="/AnnouncementDetails/{{topannouncements[0].id_announcement}}"  class="btn btn-warning">Details</button>
+            </div>
+          </div>
+        </div>
+      </li>
+  
+      <li class="cards_item">
+        <div class="card">
+          <div class="card_image">
+            <span class="note">#2</span>
+            <img src="data:image/jpeg;base64,{{topannouncements[1].property?.images[0]?.url}}" alt="IMG" />
+            <span class="card_price"><span>DT</span>{{topannouncements[1].price}}</span>
+          </div>
+          <div class="card_content">
+            <h2 class="card_title">Type : {{topannouncements[1].type}}</h2>
+            <div class="card_text">
+              <p><strong>Address  :</strong> {{topannouncements[1].property.adresse.city}},  {{topannouncements[1].property.adresse.street_name}}
+              </p>
+           
+              <p>
+                <strong>Description  :</strong> {{topannouncements[1].property.description}} 
+              </p>
+              <p> <strong>Avg Rate :</strong> {{topannouncements[1].ratmoyenne}} <i class="fa fa-star" style="color: rgb(199, 199, 45);"></i>
+              <hr />
+              <button routerLink="/AnnouncementDetails/{{topannouncements[1].id_announcement}}"  class="btn btn-warning">Details</button>
+            </div>
+          </div>
+        </div>
+      </li>
+  
+      <li class="cards_item">
+        <div class="card">
+          <div class="card_image">
+            <span class="note">#3</span>
+            <img src="data:image/jpeg;base64,{{topannouncements[2].property?.images[0]?.url}}" alt="IMG" />
+            <span class="card_price"><span>DT</span>{{topannouncements[2].price}}</span>
+          </div>
+          <div class="card_content">
+            <h2 class="card_title">Type : {{topannouncements[2].type}}</h2>
+            <div class="card_text">
+              <p> <strong>Address  :</strong> {{topannouncements[2].property.adresse.city}},  {{topannouncements[2].property.adresse.street_name}}
+              </p>
+              
+              <p> <strong>Description  :</strong> {{topannouncements[2].property.description}}
+                <p> <strong>Avg Rate :</strong> {{topannouncements[2].ratmoyenne}} <i class="fa fa-star" style="color: rgb(199, 199, 45);"></i>
+              </p>
+              <hr />
+              <button routerLink="/AnnouncementDetails/{{topannouncements[2].id_announcement}}"  class="btn btn-warning">Details</button>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

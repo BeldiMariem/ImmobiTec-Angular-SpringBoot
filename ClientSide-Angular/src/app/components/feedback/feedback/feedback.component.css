@@ -1,0 +1,13 @@
+.link-muted {
+    color: #aaa;
+  
+    &:hover {
+      color: #1266f1;
+    }
+  }
+ 
+  .comment.shadow {
+    box-shadow: 0 2px 4px rgba(218, 165, 32, 0.5);
+  }
+  
+  

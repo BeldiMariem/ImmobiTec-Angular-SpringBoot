@@ -1,0 +1,82 @@
+<div class="container py-2">
+  <div class="row my-2">
+      <!-- edit form column -->
+      <div class="col-lg-4">
+          <h2 class=" font-weight-light">Add User</h2>
+      </div>
+      <div class="col-lg-8">
+
+      </div>
+      <div class="col-lg-8 order-lg-1 personal-info">
+          <form (ngSubmit)="onSubmit()">
+              <div class="form-group row">
+                  <label class="col-lg-3 col-form-label form-control-label">First name</label>
+                  <div class="col-lg-9">
+                      <input class="form-control" type="text"   [(ngModel)]="user.name" name="user.name" />
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label class="col-lg-3 col-form-label form-control-label">Last name</label>
+                  <div class="col-lg-9">
+                      <input class="form-control" type="text" [(ngModel)]="user.lastname" name="user.lastname" />
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                  <div class="col-lg-9">
+                      <input class="form-control" type="email" [(ngModel)]="user.email" name="user.email" />
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label class="col-lg-3 col-form-label form-control-label">Phone Number</label>
+                  <div class="col-lg-9">
+                      <input class="form-control" type="text" [(ngModel)]="user.phoneNumber" name="user.phoneNumber" />
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label class="col-lg-3 col-form-label form-control-label">Birthday</label>
+                  <div class="col-lg-9">
+                      <input class="form-control" type="date" [(ngModel)]="user.birthday" name="user.birthday" />
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label class="col-lg-3 col-form-label form-control-label">Role</label>
+                  <div class="col-lg-9">
+                    <select  class="form-control" [(ngModel)]="user.role_id" name="user.role_name">
+                      <option value="{{ role.id }}" *ngFor="let role of roles">{{ role.name}}</option>
+
+                  </select>
+                  </div>
+              </div>
+
+
+
+              <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Password</label>
+                <div class="col-lg-9">
+                    <input class="form-control" type="password" [(ngModel)]="user.password" name="user.password" />
+                </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Adresse</label>
+              <div class="col-lg-3">
+                  <input class="form-control" type="text" [(ngModel)]="city" name="city" placeholder="city" />
+              </div>
+              <div class="col-lg-3">
+                <input class="form-control" type="text" [(ngModel)]="state" name="state" placeholder="State" />
+            </div>
+            <div class="col-lg-3">
+              <input class="form-control" type="text" [(ngModel)]="street_name" name="street_name" placeholder="Street Name" />
+          </div>
+          </div>
+              <div class="form-group row">
+                  <div class="col-lg-9 ml-auto text-right">
+                      <input type="reset" class="btn btn-outline-secondary" (click)="cancel()" value="Cancel" />
+                      <button type="submit" class="btn btn-outline-secondary" value="Add User" style="background-color: #f0d43a; margin-left: 3px; color:black" >Add User</button>
+                  </div>
+              </div>
+          </form>
+      </div>
+
+  </div>
+</div>

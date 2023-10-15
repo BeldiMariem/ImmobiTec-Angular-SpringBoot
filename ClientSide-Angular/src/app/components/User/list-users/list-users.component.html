@@ -1,0 +1,65 @@
+<section class="about_section layout_padding" style="margin-bottom: 10px">
+  <div class="container">
+
+
+    <span style="font-size: 35px;">List of users</span>
+  <br>
+  <div >
+      <input  class=" form-control-lg" type="text" [(ngModel)]="em" placeholder="email">
+      <input  class=" form-control-lg" type="text" [(ngModel)]="name" placeholder="first name">
+      <input   class=" form-control-lg" type="text" [(ngModel)]="lastname" placeholder="last name">
+      <button (click)="get()" class="btn-lg" style="background-color: #f0d43a; margin-left: 4px; color:white">Rechercher</button>
+
+    </div>
+    <br>
+      <div class="heading_container heading_center" >
+        <a  routerLink="/AddUser" class="btn btn-lg #F0D43A"
+        style="padding-left: 2.5rem; padding-right: 2.5rem; background-color:#F0D43A;color: white;text-decoration:none;" ><i class="fa fa-plus" ></i> Add User </a>
+
+      </div>
+
+    <br>
+    <div class="row">
+      <div class="col-sm-3" *ngFor="let user of data">
+        <div>
+
+          <div class="card">
+            <div class="img">
+              <img
+                class="img"
+                src="https://www.w3schools.com/howto/img_avatar2.png"
+              /><img />
+
+            </div>
+
+            <span>{{ user.name}}  {{ user.lastname}}</span>
+            <p class="info">{{ user.role?.name}}</p>
+            <p class="info">{{ user.email}}</p>
+            <p class="info">{{ user.phoneNumber}}</p>
+
+            <br>
+            <div>
+              <button style="background-color: #f0d43a; margin-right: 2px;" [routerLink]="['/EditUser/', user.email]"><i class="fa fa-pencil" ></i></button>
+              <button style="background-color: #f0d43a; margin-left: 2px;" (click)="deleteUser(user.id_user)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+            </div>
+            <br>
+
+          </div>
+        </div>
+        <br>
+      </div>
+
+    </div>
+
+<div class="center">
+  <div class="pagination">
+  <a (click)="before()">&laquo;</a>
+
+
+  <a (click)="next()">&raquo;</a>
+  </div>
+</div>
+  </div>
+</section>
+
+

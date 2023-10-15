@@ -1,0 +1,22 @@
+<h3>Update-Product</h3>
+<form (ngSubmit)="promo()">
+    <div class="form-group">
+        <label>New Value</label>
+        <input type="text" class="form-control" id="title" [(ngModel)]="newValue" name="newValue" />
+    </div>
+
+    <div class="form-group">
+        <label>Duration</label>
+        <input type="number" class="form-control" id="description" [(ngModel)]="duration" name="duration" />
+    </div>
+
+    <div class="form-group">
+        <label>Unit</label>
+        <input type="text" class="form-control" id="price" [(ngModel)]="unit" name="unit" />
+    </div>
+
+    <button class="btn btn-success" type="submit" style="margin-right: 40px">
+    Submit
+  </button>
+    <button class="btn btn-danger" type="reset">Reset</button>
+</form>

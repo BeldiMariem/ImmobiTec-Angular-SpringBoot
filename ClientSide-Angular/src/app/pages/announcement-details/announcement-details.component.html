@@ -1,0 +1,113 @@
+
+<!------ Include the above in your HEAD tag ---------->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+  </head>
+
+  <body>
+	
+	<div class="container" style="margin-bottom: 20px;">
+		<div class="card">
+			<div class="container-fliud">
+				<div class="wrapper row">
+					<div class="preview col-md-6">
+						
+						<div class="preview-pic tab-content">
+						  <div class="tab-pane active" id="pic-1"><img src="data:image/jpeg;base64,{{announcement.property!.images[0]?.url}}" alt=""/></div>
+						  <div class="tab-pane"  id="pic-2"><img src="data:image/jpeg;base64,{{announcement.property!.images[1]?.url}}" alt=""/></div>
+                          <div class="tab-pane"  id="pic-3"><img src="data:image/jpeg;base64,{{announcement.property!.images[2]?.url}}" alt=""/></div>
+                          <div class="tab-pane"  id="pic-4"><img src="data:image/jpeg;base64,{{announcement.property!.images[3]?.url}}" alt=""/></div>
+                          <div class="tab-pane"  id="pic-5"><img src="data:image/jpeg;base64,{{announcement.property!.images[4]?.url}}" alt=""/></div>
+
+						</div>
+						<ul class="preview-thumbnail nav nav-tabs">
+						  <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="data:image/jpeg;base64,{{announcement.property.images[0]?.url}}" alt=""/></a></li>
+						  <li ><a data-target="#pic-2" data-toggle="tab"><img src="data:image/jpeg;base64,{{announcement.property?.images[1]?.url}}" alt=""/></a></li>
+                          <li ><a data-target="#pic-3" data-toggle="tab"><img src="data:image/jpeg;base64,{{announcement.property?.images[2]?.url}}" alt=""/></a></li>
+                          <li ><a data-target="#pic-4" data-toggle="tab"><img src="data:image/jpeg;base64,{{announcement.property?.images[3]?.url}}" alt=""/></a></li>
+                          <li ><a data-target="#pic-5" data-toggle="tab"><img src="data:image/jpeg;base64,{{announcement.property?.images[4]?.url}}" alt=""/></a></li>
+
+						</ul>
+						
+					</div>
+					<div class="details col-md-6">
+						<h3 class="product-title">For {{announcement.type}}</h3>
+						<div *ngIf="!verifRating() && co=='true'" class="rating">
+							<span *ngFor="let star of stars; let i = index"
+								  class="star"
+								  [class.full]="i < rating"
+								  (click)="rate(i + 1)">
+							  <i class="fa fa-star"></i>
+							</span>
+						  </div>
+						  <div *ngIf="verifRating() && co=='true'" class="rating">
+							<span *ngFor="let star of stars; let i = index"
+								  class="star"
+								  [class.full]="i < ratingg"
+								  (click)="ratee(i + 1)">
+							  <i class="fa fa-star"></i>
+							</span>
+						  </div>
+
+						<span class="review-no">AVG Rating : {{announcement.ratmoyenne}}/7</span>
+						<p class="product-description">{{announcement.property.description}}</p>
+						<h4 class="price">current price: <span>{{announcement.price}} DT</span></h4>
+						<h5 class="sizes">Property Type : 
+							<span>{{announcement.property.type}}</span>
+						</h5>
+						<h5 class="colors">Adresse:
+							<span>{{announcement.property.adresse.city}}, {{announcement.property.adresse.street_name}} {{announcement.property.adresse.postal_code}}</span>
+						</h5>
+						<button *ngIf="co=='true'" class="btn btn-success" routerLink="/AddAppointment/{{announcement.property.id_property}}">Get an Appointment</button>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+
+<div class="container" style="margin-bottom: 30px;">
+ <div class="row">
+    <div class="col-md-6">
+            <div id="maCarte"></div>
+            <Label for="lat" style="margin-top: 40px; margin-left: 110px">Latitude :</Label>
+        <input style="width: 150px;" type="number" step="any" value={{announcement.property.x}} id="lat" name="lat" readonly />
+        
+        <Label for="lon" style="margin-left: 50px">Longitude :</Label>
+        <input style="width: 150px;"  type="number" value={{announcement.property.y}} step="any" id="lon" name="lon" readonly />
+    </div>
+    <div class="col-md-6">
+            <div id="SecondCarte"></div>
+            <Label for="lat" style="margin-top: 40px; margin-left: 110px">Latitude :</Label>
+            <input   style="width: 150px;"  type="number" step="any"  id="lat1" name="lat1" readonly />
+            
+            <Label for="lat" style="margin-left: 50px">Longitude :</Label>
+            <input  style="width: 150px;"  type="number"  step="any" id="lon1" name="lon1" readonly />
+  </div>
+</div>
+
+<div class="text-center" style="margin-top: 40px;">
+	<div class="text-center" style="margin-top: 40px;margin-bottom: 30px;">
+		<button class="btn btn-primary"   (click)="calculate()">Calculate Distance and Duration</button>
+	  </div>
+	<h3 style="color: darkslateblue;">Le Resultat : </h3>
+	
+		<h4 *ngIf="calcule" >Duration : {{calcule.Duration}}</h4> 
+		<h4 *ngIf="calcule" >Distance : {{calcule.Distance}}</h4> 
+	
+</div>
+
+</div>
+        
+
+   
+  </body>
+</html>
+

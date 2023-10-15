@@ -1,0 +1,239 @@
+<section class="about_section layout_padding" style="margin-bottom: 10px">
+  <div class="row d-flex  ">
+
+  <div class="card" style=" margin-right: 18%;margin-left: 18%; width: auto">
+
+    <div class="card-header text-center"style="background-color: white;   ">
+      <div class="text-center"  >
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+          alt="Sample image" style="width: 300; height: 200;">
+      </div></div>
+    <div class="card-body">
+
+
+
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+
+          <div class="form-group col-6">
+            <label style="color: black">First Name</label>
+            <input
+              type="text"
+              formControlName="firstName"
+              class="form-control"
+              [(ngModel)]="firstName"
+              name="firstName"
+              [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors }"
+            />
+            <div
+              *ngIf="submitted && f['firstName'].errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f['firstName'].errors['required']">
+                First Name is required
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-6">
+            <label style="color: black">Last Name</label>
+            <input
+              type="text"
+              formControlName="lastName"
+              class="form-control"
+              [(ngModel)]="lastName"
+              name="lastName"
+              [ngClass]="{ 'is-invalid': submitted && f['lastName'].errors }"
+            />
+            <div
+              *ngIf="submitted && f['lastName'].errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f['lastName'].errors['required']">
+                Last Name is required
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-4">
+            <label style="color: black">Email</label>
+            <input
+              type="text"
+              formControlName="email"
+              class="form-control"
+              [(ngModel)]="email"
+              name="email"
+              [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+            />
+            <div
+              *ngIf="submitted && f['email'].errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f['email'].errors['required']">Email is required</div>
+              <div *ngIf="f['email'].errors['email']">
+                Email must be a valid email address
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-4">
+            <label style="color: black">BirthDate</label>
+            <input
+              type="date"
+              formControlName="date"
+              class="form-control"
+              [(ngModel)]="date"
+              name="date"
+              [ngClass]="{ 'is-invalid': submitted && f['date'].errors }"
+            />
+            <div *ngIf="submitted && f['date'].errors" class="invalid-feedback">
+              <div *ngIf="f['date'].errors['required']">
+                BirthDate is required
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-4">
+            <label style="color: black">PhoneNumber</label>
+            <input
+              type="text"
+              formControlName="phoneNumber"
+              class="form-control"
+              [(ngModel)]="phoneNumber"
+              name="phoneNumber"
+              [ngClass]="{ 'is-invalid': submitted && f['phoneNumber'].errors }"
+            />
+            <div
+              *ngIf="submitted && f['phoneNumber'].errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f['phoneNumber'].errors['required']">
+                PhoneNumber is required
+              </div>
+              <div *ngIf="f['phoneNumber'].errors['minlength']">
+                PhoneNumber must contain 8 numbers
+              </div>
+              <div *ngIf="f['phoneNumber'].errors['maxlength']">
+                PhoneNumber must contain 8 numbers
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-4">
+            <label style="color: black">Password</label>
+            <input
+              type="password"
+              formControlName="password"
+              class="form-control"
+              [(ngModel)]="password"
+              name="password"
+              [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+            />
+            <div
+              *ngIf="submitted && f['password'].errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f['password'].errors['required']">
+                Password is required
+              </div>
+              <div *ngIf="f['password'].errors['minlength']">
+                Password must be at least 6 characters
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-3">
+            <label style="color: black">City</label>
+            <input
+              type="text"
+              formControlName="city"
+              class="form-control"
+              [(ngModel)]="city"
+              [ngClass]="{ 'is-invalid': submitted && f['city'].errors }"
+              />
+              <div
+                *ngIf="submitted && f['city'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['city'].errors['city']">
+                  City is required
+                </div>
+
+              </div>
+          </div>
+          <div class="form-group col-2">
+            <label style="color: black">State</label>
+            <input
+              type="text"
+              formControlName="state"
+              class="form-control"
+              [(ngModel)]="state"
+              name="state"
+              [ngClass]="{ 'is-invalid': submitted && f['state'].errors }"
+              />
+              <div
+                *ngIf="submitted && f['state'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['state'].errors['state']">
+                  State is required
+                </div>
+
+              </div>
+            />
+          </div>
+          <div class="form-group col-3">
+            <label style="color: black">Street Name</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="street_name"
+              [(ngModel)]="street_name"
+              name="street_name"
+              [ngClass]="{ 'is-invalid': submitted && f['street_name'].errors }"
+              />
+              <div
+                *ngIf="submitted && f['street_name'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['street_name'].errors['street_name']">
+                  Street Name is required
+                </div>
+
+              </div>
+            />
+          </div>
+        </div>
+        <div class="form-group form-check">
+          <input
+            type="checkbox"
+            formControlName="acceptTerms"
+            id="acceptTerms"
+            class="form-check-input"
+            [ngClass]="{ 'is-invalid': submitted && f['acceptTerms'].errors }"
+          />
+          <label style="color: black" for="acceptTerms" class="form-check-label"
+            >Accept Terms & Conditions</label
+          >
+          <div
+            *ngIf="submitted && f['acceptTerms'].errors"
+            class="invalid-feedback"
+          >
+            Accept Ts & Cs is required
+          </div>
+        </div>
+        <div class="text-center">
+          <button
+            class="btn mr-1"
+            style="background-color: #f0d43a; color: white"
+            type="submit"
+          >
+            Register
+          </button>
+          <button class="btn btn-secondary" type="reset" (click)="onReset()">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  </div>
+</section>

@@ -1,0 +1,32 @@
+
+<ol style="--length: {{forums.length}}" role="list">
+  <li *ngFor="let f of forums; let i=index" style="--i: {{i}}">
+		<h3><a (click)="forumById(f.id_forum)"> {{f.title}}</a></h3>
+		<p>{{f.description}}</p>
+    
+    <div style="text-align: center; margin-top:30px;">
+      <hr class="main-hr"/>
+      <button class="icon-btn add-btn" (click)="updateForum(f.id_forum)">
+        <div class="add-icon"></div>
+        <div class="btn-txt">Modify</div>
+      </button>
+      <button class="icon-btn add-btn" (click)="deleteForum(f.id_forum)">  
+        <div class="btn-txt">Remove</div>
+      </button>
+    </div>
+  </li>
+</ol>
+
+<div id="container">
+  <button class="learn-more" routerLink="/addForum">
+    <span class="circle" aria-hidden="true">
+      <span class="icon arrow"></span>
+    </span>
+    <span class="button-text">Add forum</span>
+  </button>
+</div>
+<br>
+
+
+
+

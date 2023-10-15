@@ -1,0 +1,109 @@
+
+
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" routerLink="/ListAnnouncements">
+            <span>
+
+                  <img style="width: 100px;height: 90px;" src="assets/images/logo.png">
+
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+
+                <a class="nav-link" routerLink="/ListAnnouncements" style=" font-size: 13px;">Announcements <span class="sr-only">(current)</span></a>
+              </li>
+
+              <li class="nav-item" *ngIf="role=='ROLE_USER' ">
+                <a class="nav-link"  routerLink="/Auctions" style=" font-size: 13px;"> Auctions </a>
+              </li>
+              <li class="nav-item" *ngIf="role=='ROLE_USER' ">
+                <a class="nav-link"  routerLink="/cardProduct" style=" font-size: 13px;"> Products </a>
+              </li>
+              <li class="nav-item" *ngIf="role=='ROLE_ADMIN' ">
+                <a class="nav-link"  routerLink="/ListProduct" style=" font-size: 13px;"> Products </a>
+              </li>
+              <li class="nav-item" *ngIf="role=='ROLE_ADMIN' ">
+                <a class="nav-link"  routerLink="/AdimnAuctions" style=" font-size: 13px;"> Auctions </a>
+
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/TopAnnouncements" style=" font-size: 13px;"> Top Announcements </a>
+
+              </li>
+              <li class="nav-item">
+
+
+                <a class="nav-link" routerLink="/allForums" style=" font-size: 13px;"> Forum </a>
+              </li>
+              <li class="nav-item"  *ngIf="role=='ROLE_USER' ">
+                <a class="nav-link" routerLink="/ListDormRooms" style=" font-size: 13px;"> Dorm Rooms </a>
+              </li>
+              <li class="nav-item" *ngIf="role=='ROLE_ADMIN' ">
+                <a class="nav-link" routerLink="/ListReservations" style=" font-size: 13px;"> Reservations </a>
+              </li>
+              <li class="nav-item" *ngIf="role=='ROLE_ADMIN' ">
+                <a class="nav-link" routerLink="/dormsback" style=" font-size: 13px;"> Drom Rooms </a>
+              </li>
+
+              <li class="nav-item" *ngIf="role=='ROLE_ADMIN' ">
+                <a class="nav-link" routerLink="/ListServices" style=" font-size: 13px;"> Services </a>
+              </li>
+
+              <li class="nav-item" *ngIf="role=='ROLE_USER' ">
+                <a class="nav-link" routerLink="/ListServicesFront" style=" font-size: 13px;">  Services </a>
+              </li>
+              <li class="nav-item" *ngIf="role=='ROLE_ADMIN' ">
+                <a class="nav-link" routerLink="/ListAppointments" style=" font-size: 13px;"> Appointements </a>
+              </li>
+
+              <li class="nav-item"  *ngIf="co!='true'">
+
+                <a class="nav-link" routerLink="/login" style=" font-size: 13px;"> Login </a>
+
+              </li>
+
+
+              <li class="nav-item" *ngIf="role=='ROLE_ADMIN' ">
+                <a class="nav-link" routerLink="/listUsers"  style=" font-size: 13px;"> Users </a>
+              </li>
+              <li class="nav-item" *ngIf="role=='ROLE_ADMIN' ">
+                <a class="nav-link" routerLink="/listRoles" style=" font-size: 13px;"> Roles </a>
+              </li>
+
+
+              <li class="nav-item" *ngIf="role=='ROLE_USER' ">
+                <a class="nav-link" routerLink="/ListProperties" style=" font-size: 13px;">Properties</a>
+              </li>
+              <li class="nav-item" *ngIf="role=='ROLE_USER' ">
+                <a class="nav-link" routerLink="/MyAppointment" style=" font-size: 13px;">My Appointments</a>
+              </li>
+              <li class="nav-item"  *ngIf="role=='ROLE_USER' ">
+                <a class="nav-link" routerLink="/ListOrders" style=" font-size: 13px;"> My orders </a>
+              </li>
+            </ul>
+            <div class="user_option-box">
+
+              <a  routerLink="/userAccount"class="nav-link" routerLink="/userAccount"  *ngIf="co=='true'">
+                <i class="fa fa-user" aria-hidden="true"></i>
+              </a>
+
+              <a (click)="logout()" *ngIf="co=='true'">
+                <i class="fa fa-sign-out" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+
+

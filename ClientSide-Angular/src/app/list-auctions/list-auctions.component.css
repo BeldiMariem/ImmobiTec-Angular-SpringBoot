@@ -1,0 +1,54 @@
+.shop_section {
+    background-color: #0e415e;
+  }
+.box {
+    background-color: #ffffff;
+  }
+  .shop_section h2 {
+    font-size: 100px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fdfeff;
+    margin-top: 80px;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+    font-family: "Open Sans", sans-serif;
+    position: absolute;
+    top: 100px;
+  }
+
+  
+  .shop_section button {
+    margin-top: 30px;
+   margin-left: 600px;
+   
+  }
+ 
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px; /* Espacement entre les colonnes */
+  }
+
+  .description {
+    grid-column: 1 / span 1; /* Cette classe s'applique à la colonne de description */
+    margin-top:25Px;
+
+}
+
+  image {
+    grid-column: 2 / span 1; /* Cette classe s'applique à la colonne d'image */
+    top:40px;
+
+}
+
+.pagination-container {
+    list-style: none;
+ margin-left: 480;
+ margin-top: 30;
+    color: #fff;
+    border-color: #0e415e;
+  }
+  
